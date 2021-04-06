@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.375, 8.875" name="ADLVMusicAcademyDBO">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.125, 8.875" name="ADLVMusicAcademyDBO">
   <DataContextMoniker Name="/ADLVMusicAcademyDBODataContext" />
   <nestedChildShapes>
     <classShape Id="c1dac36d-e9e6-4a4e-8208-2728551dad43" absoluteBounds="0.625, 1.125, 2, 1.1939925130208344">
@@ -26,10 +26,10 @@
         <elementListCompartment Id="2e759995-c0a1-4922-b53d-ec38597ea55c" absoluteBounds="10.89, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="75e341e7-f4a0-4362-98be-efcceddc3860" absoluteBounds="11.125, 6.125, 2, 1.9631982421875005">
+    <classShape Id="75e341e7-f4a0-4362-98be-efcceddc3860" absoluteBounds="10.75, 6.125, 2, 1.9631982421875005">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/NewsItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="7ee4614c-24ac-42af-aeea-c1ed7f71451f" absoluteBounds="11.14, 6.5850000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7ee4614c-24ac-42af-aeea-c1ed7f71451f" absoluteBounds="10.765, 6.5850000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="61c5b455-9de8-4b39-b87f-1e74993d7f9c" absoluteBounds="6.625, 6.125, 2, 2.5401025390624996">
