@@ -16,13 +16,17 @@ namespace ADLVMusicAcademy.Controllers
         // GET: NewsItem
         public ActionResult Index()
         {
-            return View();
+            List<NewsItemModel> newsItems = newsItemRepository.GetAllNewsItems();
+
+            return View("Index", newsItems);
         }
 
         // GET: NewsItem/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            NewsItemModel newsItemModel = newsItemRepository.GetNewsItemById(id);
+
+            return View("NewsItemDetails", newsItemModel);
         }
 
         // GET: NewsItem/Create
@@ -52,46 +56,52 @@ namespace ADLVMusicAcademy.Controllers
         }
 
         // GET: NewsItem/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            NewsItemModel newsItemModel = newsItemRepository.GetNewsItemById(id);
+
+            return View("EditNewsItem", newsItemModel);
         }
 
         // POST: NewsItem/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                NewsItemModel newsItemModel = new NewsItemModel();
+                UpdateModel(newsItemModel);
+                newsItemRepository.UpdateNewsItem(newsItemModel);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("EditNewsItem");
             }
         }
 
         // GET: NewsItem/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            NewsItemModel newsItemModel = newsItemRepository.GetNewsItemById(id);
+
+            return View("DeleteNewsItem", newsItemModel);
         }
 
         // POST: NewsItem/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                newsItemRepository.DeleteNewsItem(id);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("DeleteNewsItem");
             }
         }
     }

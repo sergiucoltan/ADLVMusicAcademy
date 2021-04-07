@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<ADLVMusicAcademy.Models.NewsItemModel>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +7,58 @@
 
 <h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDNewsItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title) 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValidFrom) @*aici ar veni un action link care sa ne permita sa facem un link, pe urma in metoda de index punem un parametru de sortare*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValidTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDNewsItem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IDNewsItem }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IDNewsItem }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDNewsItem })
+        </td>
+    </tr>
+}
+
+</table>
