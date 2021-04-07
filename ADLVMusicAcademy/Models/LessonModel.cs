@@ -13,6 +13,6 @@ namespace ADLVMusicAcademy.Models
         public Guid IDStudent { get; set; }
         public DateTime LessonDate { get; set; }
         public string Resources { get; set; }
-        public byte Status { get; set; }
+        public bool Status { get; set; }
     }
 }
