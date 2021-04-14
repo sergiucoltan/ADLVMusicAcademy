@@ -38,10 +38,10 @@ namespace ADLVMusicAcademy.Repository
             return MapDbObjectToModel(student);
         }
 
-        public List<StudentModel> GetStudentByUsername(string userName)
+        public List<StudentModel> GetStudentByEmail(string email)
         {
             List<StudentModel> studentList = new List<StudentModel>();
-            foreach (Student dbStudent in dbContext.Students.Where(x => x.Username.Contains(userName)))
+            foreach (Student dbStudent in dbContext.Students.Where(x => x.E_mail.Contains(email)))
             {
                 studentList.Add(MapDbObjectToModel(dbStudent));
             }
@@ -72,13 +72,10 @@ namespace ADLVMusicAcademy.Repository
             if (studentDb != null)
             {
                 studentDb.IdStudent = student.IDStudent;
-                studentDb.Username = student.Username;
-                studentDb.Password = student.Password;
-                studentDb.E_mail = student.E_mail;
                 studentDb.FirstName = student.FirstName;
                 studentDb.LastName = student.LastName;
-                studentDb.DateOfBirth = student.DateOfBirth;
                 studentDb.Address = student.Address;
+                studentDb.E_mail = student.E_mail;
                 studentDb.Mobile = student.Mobile;
                 dbContext.SubmitChanges();
             }
@@ -102,13 +99,10 @@ namespace ADLVMusicAcademy.Repository
             if (student != null)
             {
                 studentDb.IdStudent = student.IDStudent;
-                studentDb.Username = student.Username;
-                studentDb.Password = student.Password;
-                studentDb.E_mail = student.E_mail;
                 studentDb.FirstName = student.FirstName;
                 studentDb.LastName = student.LastName;
-                studentDb.DateOfBirth = student.DateOfBirth;
                 studentDb.Address = student.Address;
+                studentDb.E_mail = student.E_mail;
                 studentDb.Mobile = student.Mobile;
 
                 return studentDb;
@@ -124,13 +118,10 @@ namespace ADLVMusicAcademy.Repository
             if (dbStudent != null)
             {
                 student.IDStudent = dbStudent.IdStudent;
-                student.Username = dbStudent.Username;
-                student.Password = dbStudent.Password;
-                student.E_mail = dbStudent.E_mail;
                 student.FirstName = dbStudent.FirstName;
                 student.LastName = dbStudent.LastName;
-                student.DateOfBirth = dbStudent.DateOfBirth;
                 student.Address = dbStudent.Address;
+                student.E_mail = dbStudent.E_mail;
                 student.Mobile = dbStudent.Mobile;
 
                 return student;

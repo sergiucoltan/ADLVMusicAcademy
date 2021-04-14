@@ -44,6 +44,16 @@ namespace ADLVMusicAcademy.Repository
             return MapDbObjectToModel(lesson);
         }
 
+        public List<LessonModel> GetLessonByTitle(string title)
+        {
+            List<LessonModel> lessonList = new List<LessonModel>();
+            foreach (Lesson dbLesson in dbContext.Lessons.Where(x => x.LessonTitle.Contains(title)))
+            {
+                lessonList.Add(MapDbObjectToModel(dbLesson));
+            }
+            return lessonList;
+        }
+
         public void InsertLesson(LessonModel lesson)
         {
             lesson.IDLesson = Guid.NewGuid();
@@ -60,6 +70,8 @@ namespace ADLVMusicAcademy.Repository
                 lessonDb.IdCourse = lesson.IDCourse;
                 lessonDb.IdTeacher = lesson.IDTeacher;
                 lessonDb.IdStudent = lesson.IDStudent;
+                lessonDb.LessonTitle = lesson.LessonTitle;
+                lessonDb.LessonSummary = lesson.LessonSummary;
                 lessonDb.LessonDate = lesson.LessonDate;
                 lessonDb.Resources = lesson.Resources;
                 lessonDb.Status = lesson.Status;
@@ -88,6 +100,8 @@ namespace ADLVMusicAcademy.Repository
                 lessonDb.IdCourse = lesson.IDCourse;
                 lessonDb.IdTeacher = lesson.IDTeacher;
                 lessonDb.IdStudent = lesson.IDStudent;
+                lessonDb.LessonTitle = lesson.LessonTitle;
+                lessonDb.LessonSummary = lesson.LessonSummary;
                 lessonDb.LessonDate = lesson.LessonDate;
                 lessonDb.Resources = lesson.Resources;
                 lessonDb.Status = lesson.Status;
@@ -107,6 +121,8 @@ namespace ADLVMusicAcademy.Repository
                 lesson.IDCourse= dbLesson.IdCourse;
                 lesson.IDTeacher = dbLesson.IdTeacher;
                 lesson.IDStudent = dbLesson.IdStudent;
+                lesson.LessonTitle = dbLesson.LessonTitle;
+                lesson.LessonSummary = dbLesson.LessonSummary;
                 lesson.LessonDate = dbLesson.LessonDate;
                 lesson.Resources = dbLesson.Resources;
                 lesson.Status = dbLesson.Status;

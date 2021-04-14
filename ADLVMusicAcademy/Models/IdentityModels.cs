@@ -21,7 +21,7 @@ namespace ADLVMusicAcademy.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ADLVMusicAcademyConnectionString", throwIfV1Schema: false)
         {
         }
 

@@ -63,6 +63,7 @@ namespace ADLVMusicAcademy.Repository
             if (courseDb != null)
             {
                 courseDb.IdCourse = course.IDCourse;
+                courseDb.IdTeacher = course.IDTeacher;
                 courseDb.CourseName = course.CourseName;
                 dbContext.SubmitChanges();
             }
@@ -86,6 +87,7 @@ namespace ADLVMusicAcademy.Repository
             if (course != null)
             {
                 courseDb.IdCourse = course.IDCourse;
+                courseDb.IdTeacher = course.IDTeacher;
                 courseDb.CourseName = course.CourseName;
 
                 return courseDb;
@@ -100,6 +102,7 @@ namespace ADLVMusicAcademy.Repository
             if (dbCourse != null)
             {
                 course.IDCourse = dbCourse.IdCourse;
+                course.IDTeacher = dbCourse.IdTeacher;
                 course.CourseName = dbCourse.CourseName;
 
                 return course;

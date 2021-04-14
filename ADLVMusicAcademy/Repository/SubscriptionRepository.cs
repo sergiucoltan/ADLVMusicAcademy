@@ -65,7 +65,6 @@ namespace ADLVMusicAcademy.Repository
                 subscriptionDb.IdSubscription = subscription.IDSubscription;
                 subscriptionDb.IdCourse = subscription.IDCourse;
                 subscriptionDb.IdStudent = subscription.IDStudent;
-                subscriptionDb.IdTeacher = subscription.IDTeacher;
                 subscriptionDb.StartDate = subscription.StartDate;
                 subscriptionDb.EndDate = subscription.EndDate;
                 dbContext.SubmitChanges();
@@ -92,7 +91,6 @@ namespace ADLVMusicAcademy.Repository
                 subscriptionDb.IdSubscription = subscription.IDSubscription;
                 subscriptionDb.IdCourse = subscription.IDCourse;
                 subscriptionDb.IdStudent = subscription.IDStudent;
-                subscriptionDb.IdTeacher = subscription.IDTeacher;
                 subscriptionDb.StartDate = subscription.StartDate;
                 subscriptionDb.EndDate = subscription.EndDate;
 
@@ -111,7 +109,6 @@ namespace ADLVMusicAcademy.Repository
                 subscription.IDSubscription = dbSubscription.IdSubscription;
                 subscription.IDCourse = dbSubscription.IdCourse;
                 subscription.IDStudent = dbSubscription.IdStudent;
-                subscription.IDTeacher = dbSubscription.IdTeacher;
                 subscription.StartDate = dbSubscription.StartDate;
                 subscription.EndDate = dbSubscription.EndDate;
 

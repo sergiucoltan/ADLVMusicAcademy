@@ -38,10 +38,10 @@ namespace ADLVMusicAcademy.Repository
             return MapDbObjectToModel(manager);
         }
 
-        public List<ManagerModel> GetManagerByUsername(string userName)
+        public List<ManagerModel> GetManagerByEmail(string email)
         {
             List<ManagerModel> managerList = new List<ManagerModel>();
-            foreach (Manager dbManager in dbContext.Managers.Where(x => x.Username.Contains(userName)))
+            foreach (Manager dbManager in dbContext.Managers.Where(x => x.E_mail.Contains(email)))
             {
                 managerList.Add(MapDbObjectToModel(dbManager));
             }
@@ -72,12 +72,9 @@ namespace ADLVMusicAcademy.Repository
             if (managerDb != null)
             {
                 managerDb.IdManager = manager.IDManager;
-                managerDb.Username = manager.Username;
-                managerDb.Password = manager.Password;
-                managerDb.E_mail = manager.E_mail;
                 managerDb.FirstName = manager.FirstName;
                 managerDb.LastName = manager.LastName;
-                managerDb.DateOfBirth = manager.DateOfBirth;
+                managerDb.E_mail = manager.E_mail;
                 managerDb.Address = manager.Address;
                 managerDb.Mobile = manager.Mobile;
                 dbContext.SubmitChanges();
@@ -102,12 +99,9 @@ namespace ADLVMusicAcademy.Repository
             if (manager != null)
             {
                 managerDb.IdManager = manager.IDManager;
-                managerDb.Username = manager.Username;
-                managerDb.Password = manager.Password;
-                managerDb.E_mail = manager.E_mail;
                 managerDb.FirstName = manager.FirstName;
                 managerDb.LastName = manager.LastName;
-                managerDb.DateOfBirth = manager.DateOfBirth;
+                managerDb.E_mail = manager.E_mail;
                 managerDb.Address = manager.Address;
                 managerDb.Mobile = manager.Mobile;
 
@@ -124,12 +118,9 @@ namespace ADLVMusicAcademy.Repository
             if (dbManager != null)
             {
                 manager.IDManager = dbManager.IdManager;
-                manager.Username = dbManager.Username;
-                manager.Password = dbManager.Password;
-                manager.E_mail = dbManager.E_mail;
                 manager.FirstName = dbManager.FirstName;
                 manager.LastName = dbManager.LastName;
-                manager.DateOfBirth = dbManager.DateOfBirth;
+                manager.E_mail = dbManager.E_mail;
                 manager.Address = dbManager.Address;
                 manager.Mobile = dbManager.Mobile;
 

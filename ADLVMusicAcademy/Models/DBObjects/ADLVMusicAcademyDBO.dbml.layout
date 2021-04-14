@@ -1,95 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.125, 8.875" name="ADLVMusicAcademyDBO">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 9" name="ADLVMusicAcademyDBO">
   <DataContextMoniker Name="/ADLVMusicAcademyDBODataContext" />
   <nestedChildShapes>
-    <classShape Id="c1dac36d-e9e6-4a4e-8208-2728551dad43" absoluteBounds="0.625, 1.125, 2, 1.1939925130208344">
-      <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Course" />
-      <nestedChildShapes>
-        <elementListCompartment Id="02c474f0-cea1-472b-96ed-86934e2e96bc" absoluteBounds="0.64, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="d9821164-8e45-4b75-a3f1-1d7dda4cdc18" absoluteBounds="10.875, 4.125, 2, 1.5785953776041666">
+    <classShape Id="16b3e1c5-9c58-4b4b-b1b5-3fd5c5a57fb5" absoluteBounds="9.5, 4.5, 2, 1.1939925130208344">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Admin" />
       <nestedChildShapes>
-        <elementListCompartment Id="d6fedb20-083e-4408-a078-75a01c18ac51" absoluteBounds="10.89, 4.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="09022075-59f4-4e84-b6ff-fa4ba4be2583" absoluteBounds="9.515, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0a25ebd9-24f0-4b80-b4da-18eacfcfa70e" absoluteBounds="7.125, 1.125, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Lesson" />
+    <classShape Id="60f0663a-6da0-417d-9d89-09baf5745047" absoluteBounds="6, 1.25, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Course" />
       <nestedChildShapes>
-        <elementListCompartment Id="20ef0701-abb9-4fc3-872d-bd2e7eab6cda" absoluteBounds="7.1400000000000006, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d0899b6c-9274-486d-8a99-775734ac1948" absoluteBounds="6.0150000000000006, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="024805db-2a61-49df-a40a-91d2eb7b333e" absoluteBounds="10.875, 1, 2, 2.5401025390625005">
+    <classShape Id="5ac3ead4-d6a7-4aa9-bf47-77bb904a2a62" absoluteBounds="9.5, 6.75, 2, 1.9631982421874987">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Manager" />
       <nestedChildShapes>
-        <elementListCompartment Id="2e759995-c0a1-4922-b53d-ec38597ea55c" absoluteBounds="10.89, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8e3a541e-5d18-4e42-b29f-fce4ae47bab8" absoluteBounds="9.515, 7.2100000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="75e341e7-f4a0-4362-98be-efcceddc3860" absoluteBounds="10.75, 6.125, 2, 1.9631982421875005">
+    <classShape Id="c301e1bd-d0fe-4655-89c7-86d108711e97" absoluteBounds="9.375, 1.5, 2, 1.9631982421874996">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/NewsItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="7ee4614c-24ac-42af-aeea-c1ed7f71451f" absoluteBounds="10.765, 6.5850000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="dfe033fe-ca17-4976-886d-10cc651a68ed" absoluteBounds="9.39, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="61c5b455-9de8-4b39-b87f-1e74993d7f9c" absoluteBounds="6.625, 6.125, 2, 2.5401025390624996">
+    <classShape Id="473b6943-3ea4-4b2b-addd-57d499bb2c03" absoluteBounds="1, 6.625, 2, 1.9631982421875005">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Student" />
       <nestedChildShapes>
-        <elementListCompartment Id="6daea169-7a5e-4f88-a6e5-0bc492ef83e2" absoluteBounds="6.64, 6.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aafbf2df-8fef-4697-a214-cfb6dc25cc03" absoluteBounds="1.0150000000000006, 7.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="64713693-2eb2-43f2-81dc-97eef10a17d1" absoluteBounds="0.625, 4.875, 2, 1.9631982421875005">
+    <classShape Id="07d9333e-d3ff-4165-aa71-c085db1d9eb8" absoluteBounds="6.5, 4.25, 2, 1.7708968098958331">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Subscription" />
       <nestedChildShapes>
-        <elementListCompartment Id="0256e367-7aed-4c87-8d54-e50c218ed110" absoluteBounds="0.64000000000000057, 5.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="00afd619-716a-4301-a439-629e6bfd34bc" absoluteBounds="6.5150000000000006, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c6998a52-8f89-4558-8945-87f9416cc17d" absoluteBounds="3.625, 3.25, 2, 2.5401025390624987">
+    <classShape Id="378c05f2-f39d-43af-bcee-8feaecc56a5e" absoluteBounds="3.375, 4, 2, 1.9631982421874992">
       <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Teacher" />
       <nestedChildShapes>
-        <elementListCompartment Id="a186f215-c911-48c1-97c9-5386708de5d2" absoluteBounds="3.6399999999999997, 3.7100000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0032cda9-56cc-406e-aff5-a24088a57c53" absoluteBounds="3.3900000000000006, 4.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.625 : 1.72199625651042); (7.125 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Course/Course_Lesson" />
-      <nodes>
-        <classShapeMoniker Id="c1dac36d-e9e6-4a4e-8208-2728551dad43" />
-        <classShapeMoniker Id="0a25ebd9-24f0-4b80-b4da-18eacfcfa70e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.23437375 : 6.125); (8.23437375 : 3.28049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Student/Student_Lesson" />
-      <nodes>
-        <classShapeMoniker Id="61c5b455-9de8-4b39-b87f-1e74993d7f9c" />
-        <classShapeMoniker Id="0a25ebd9-24f0-4b80-b4da-18eacfcfa70e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(1.625 : 2.31899251302083); (1.625 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 2.6362939453125); (7.25 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Course/Course_Subscription" />
       <nodes>
-        <classShapeMoniker Id="c1dac36d-e9e6-4a4e-8208-2728551dad43" />
-        <classShapeMoniker Id="64713693-2eb2-43f2-81dc-97eef10a17d1" />
+        <classShapeMoniker Id="60f0663a-6da0-417d-9d89-09baf5745047" />
+        <classShapeMoniker Id="07d9333e-d3ff-4165-aa71-c085db1d9eb8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.625 : 6.48159912109375); (2.625 : 6.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3 : 7.60659912109375); (7.5 : 7.60659912109375); (7.5 : 6.02089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Student/Student_Subscription" />
       <nodes>
-        <classShapeMoniker Id="61c5b455-9de8-4b39-b87f-1e74993d7f9c" />
-        <classShapeMoniker Id="64713693-2eb2-43f2-81dc-97eef10a17d1" />
+        <classShapeMoniker Id="473b6943-3ea4-4b2b-addd-57d499bb2c03" />
+        <classShapeMoniker Id="07d9333e-d3ff-4165-aa71-c085db1d9eb8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.625 : 4.56655360677083); (7.7187475 : 4.56655360677083); (7.7187475 : 3.28049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.375 : 4); (4.375 : 1.94314697265625); (6 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Teacher/Teacher_Course" />
+      <nodes>
+        <classShapeMoniker Id="378c05f2-f39d-43af-bcee-8feaecc56a5e" />
+        <classShapeMoniker Id="60f0663a-6da0-417d-9d89-09baf5745047" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="36f1fe2c-83a5-42d2-9024-f7db747b15b8" absoluteBounds="1, 1.125, 2, 2.5401025390625">
+      <DataClassMoniker Name="/ADLVMusicAcademyDBODataContext/Lesson" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5916c29-e80d-411c-833d-eec17d881934" absoluteBounds="1.0149999999999997, 1.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 1.53407348632813); (3 : 1.53407348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Course/Course_Lesson" />
+      <nodes>
+        <classShapeMoniker Id="60f0663a-6da0-417d-9d89-09baf5745047" />
+        <classShapeMoniker Id="36f1fe2c-83a5-42d2-9024-f7db747b15b8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2 : 6.625); (2 : 3.6651025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Student/Student_Lesson" />
+      <nodes>
+        <classShapeMoniker Id="473b6943-3ea4-4b2b-addd-57d499bb2c03" />
+        <classShapeMoniker Id="36f1fe2c-83a5-42d2-9024-f7db747b15b8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 4); (3 : 3.6651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Teacher/Teacher_Lesson" />
       <nodes>
-        <classShapeMoniker Id="c6998a52-8f89-4558-8945-87f9416cc17d" />
-        <classShapeMoniker Id="0a25ebd9-24f0-4b80-b4da-18eacfcfa70e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.625 : 5.33255126953125); (2.625 : 5.33255126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ADLVMusicAcademyDBODataContext/Teacher/Teacher_Subscription" />
-      <nodes>
-        <classShapeMoniker Id="c6998a52-8f89-4558-8945-87f9416cc17d" />
-        <classShapeMoniker Id="64713693-2eb2-43f2-81dc-97eef10a17d1" />
+        <classShapeMoniker Id="378c05f2-f39d-43af-bcee-8feaecc56a5e" />
+        <classShapeMoniker Id="36f1fe2c-83a5-42d2-9024-f7db747b15b8" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

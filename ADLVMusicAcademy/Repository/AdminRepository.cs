@@ -39,10 +39,10 @@ namespace ADLVMusicAcademy.Repository
             return MapDbObjectToModel(admin);
         }
 
-        public List<AdminModel> GetAdminByUsername(string userName)
+        public List<AdminModel> GetAdminByEmail(string email)
         {
             List<AdminModel> adminList = new List<AdminModel>();
-            foreach (Admin dbAdmin in dbContext.Admins.Where(x => x.Username.Contains(userName)))
+            foreach (Admin dbAdmin in dbContext.Admins.Where(x => x.E_mail.Contains(email)))
             {
                 adminList.Add(MapDbObjectToModel(dbAdmin));
             }
@@ -63,8 +63,6 @@ namespace ADLVMusicAcademy.Repository
             if (adminDb != null)
             {
                 adminDb.IdAdmin = admin.IDAdmin;
-                adminDb.Username = admin.Username;
-                adminDb.Password = admin.Password;
                 adminDb.E_mail = admin.E_mail;
                 dbContext.SubmitChanges();
             }
@@ -88,8 +86,6 @@ namespace ADLVMusicAcademy.Repository
             if (admin != null)
             {
                 adminDb.IdAdmin = admin.IDAdmin;
-                adminDb.Username = admin.Username;
-                adminDb.Password = admin.Password;
                 adminDb.E_mail = admin.E_mail;
 
                 return adminDb;
@@ -105,8 +101,6 @@ namespace ADLVMusicAcademy.Repository
             if (dbAdmin != null)
             {
                 admin.IDAdmin = dbAdmin.IdAdmin;
-                admin.Username = dbAdmin.Username;
-                admin.Password = dbAdmin.Password;
                 admin.E_mail = dbAdmin.E_mail;
 
                 return admin;

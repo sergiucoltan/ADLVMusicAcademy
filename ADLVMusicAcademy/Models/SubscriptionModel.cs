@@ -16,12 +16,10 @@ namespace ADLVMusicAcademy.Models
         [Required(ErrorMessage = "Mandatory field")]
         public Guid IDStudent { get; set; }
 
-        [Required(ErrorMessage = "Mandatory field")]
-        public Guid IDTeacher { get; set; }
 
         [Required(ErrorMessage = "Mandatory field")]
         public DateTime StartDate { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

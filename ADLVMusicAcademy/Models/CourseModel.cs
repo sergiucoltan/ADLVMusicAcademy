@@ -10,6 +10,8 @@ namespace ADLVMusicAcademy.Models
     {  
         public Guid IDCourse { get; set; }
 
+        public Guid IDTeacher { get; set; }
+
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(250, ErrorMessage = "String too long (max. 250 chars)")]
         public string CourseName { get; set; }

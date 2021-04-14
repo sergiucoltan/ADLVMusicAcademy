@@ -1,0 +1,43 @@
+﻿@model ADLVMusicAcademy.Models.CourseModel
+
+@{
+    ViewBag.Title = "CourseDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CourseDetails</h2>
+
+<div>
+    <h4>CourseModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCourse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTeacher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTeacher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

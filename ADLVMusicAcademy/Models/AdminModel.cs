@@ -12,14 +12,6 @@ namespace ADLVMusicAcademy.Models
         public Guid IDAdmin { get; set; }
 
         [Required(ErrorMessage = "Mandatory field")]
-        [StringLength(25, ErrorMessage = "String too long (max. 25 chars)")]
-        public string Username { get; set; }
-
-        [Required(ErrorMessage = "Mandatory field")]
-        [StringLength(25, ErrorMessage = "String too long (max. 25 chars)")]
-        public string Password { get; set; }
-
-        [Required(ErrorMessage = "Mandatory field")]
         [StringLength(50, ErrorMessage = "String too long (max. 50 chars)")]
         public string E_mail { get; set; }
     }

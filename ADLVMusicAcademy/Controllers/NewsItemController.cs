@@ -13,6 +13,7 @@ namespace ADLVMusicAcademy.Controllers
         //injectare repository
         private NewsItemRepository newsItemRepository = new NewsItemRepository();
 
+        [AllowAnonymous]
         // GET: NewsItem
         public ActionResult Index()
         {
@@ -23,18 +24,19 @@ namespace ADLVMusicAcademy.Controllers
 
         // GET: NewsItem/Details/5
         public ActionResult Details(Guid id)
-        {
+        { 
             NewsItemModel newsItemModel = newsItemRepository.GetNewsItemById(id);
 
             return View("NewsItemDetails", newsItemModel);
         }
 
+        [Authorize(Roles = "User, Editor, Admin")]
         // GET: NewsItem/Create
         public ActionResult Create()
         {
             return View("CreateNewsItem");
         }
-
+        [Authorize(Roles = "User, Editor, Admin")]
         // POST: NewsItem/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -55,6 +57,7 @@ namespace ADLVMusicAcademy.Controllers
             }
         }
 
+        [Authorize(Roles = "User, Editor, Admin")]
         // GET: NewsItem/Edit/5
         public ActionResult Edit(Guid id)
         {
@@ -63,6 +66,7 @@ namespace ADLVMusicAcademy.Controllers
             return View("EditNewsItem", newsItemModel);
         }
 
+        [Authorize(Roles = "User, Editor, Admin")]
         // POST: NewsItem/Edit/5
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
@@ -81,6 +85,7 @@ namespace ADLVMusicAcademy.Controllers
             }
         }
 
+        [Authorize(Roles = "Editor, Admin")]
         // GET: NewsItem/Delete/5
         public ActionResult Delete(Guid id)
         {
@@ -89,6 +94,7 @@ namespace ADLVMusicAcademy.Controllers
             return View("DeleteNewsItem", newsItemModel);
         }
 
+        [Authorize(Roles = "Editor, Admin")]
         // POST: NewsItem/Delete/5
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)

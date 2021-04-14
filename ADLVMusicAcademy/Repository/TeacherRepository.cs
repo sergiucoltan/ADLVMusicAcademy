@@ -39,10 +39,10 @@ namespace ADLVMusicAcademy.Repository
             return MapDbObjectToModel(teacher);
         }
 
-        public List<TeacherModel> GetTeacherByUsername(string userName)
+        public List<TeacherModel> GetTeacherByEmail(string email)
         {
             List<TeacherModel> teacherList = new List<TeacherModel>();
-            foreach (Teacher dbTeacher in dbContext.Teachers.Where(x => x.Username.Contains(userName)))
+            foreach (Teacher dbTeacher in dbContext.Teachers.Where(x => x.E_mail.Contains(email)))
             {
                 teacherList.Add(MapDbObjectToModel(dbTeacher));
             }
@@ -66,19 +66,16 @@ namespace ADLVMusicAcademy.Repository
             dbContext.SubmitChanges();
         }
 
-        public void UpdateStudent(TeacherModel teacher)
+        public void UpdateTeacher(TeacherModel teacher)
         {
             Teacher teacherDb = dbContext.Teachers.FirstOrDefault(x => x.IdTeacher == teacher.IDTeacher);
             if(teacherDb != null)
             {
                 teacherDb.IdTeacher = teacher.IDTeacher;
-                teacherDb.Username = teacher.Username;
-                teacherDb.Password = teacher.Password;
-                teacherDb.E_mail = teacher.E_mail;
                 teacherDb.FirstName = teacher.FirstName;
                 teacherDb.LastName = teacher.LastName;
-                teacherDb.DateOfBirth = teacher.DateOfBirth;
                 teacherDb.Address = teacher.Address;
+                teacherDb.E_mail = teacher.E_mail;
                 teacherDb.Mobile = teacher.Mobile;
                 dbContext.SubmitChanges();
             }
@@ -101,13 +98,10 @@ namespace ADLVMusicAcademy.Repository
             if (teacher != null)
             {
                 teacherDb.IdTeacher = teacher.IDTeacher;
-                teacherDb.Username = teacher.Username;
-                teacherDb.Password = teacher.Password;
-                teacherDb.E_mail = teacher.E_mail;
                 teacherDb.FirstName = teacher.FirstName;
                 teacherDb.LastName = teacher.LastName;
-                teacherDb.DateOfBirth = teacher.DateOfBirth;
                 teacherDb.Address = teacher.Address;
+                teacherDb.E_mail = teacher.E_mail;
                 teacherDb.Mobile = teacher.Mobile;
 
                 return teacherDb;
@@ -123,13 +117,10 @@ namespace ADLVMusicAcademy.Repository
             if (dbTeacher != null)
             {
                 teacher.IDTeacher = dbTeacher.IdTeacher;
-                teacher.Username = dbTeacher.Username;
-                teacher.Password = dbTeacher.Password;
-                teacher.E_mail = dbTeacher.E_mail;
                 teacher.FirstName = dbTeacher.FirstName;
                 teacher.LastName = dbTeacher.LastName;
-                teacher.DateOfBirth = dbTeacher.DateOfBirth;
                 teacher.Address = dbTeacher.Address;
+                teacher.E_mail = dbTeacher.E_mail;
                 teacher.Mobile = dbTeacher.Mobile;
 
                 return teacher;
