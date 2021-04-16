@@ -72,6 +72,10 @@ namespace ADLVMusicAcademy.Repository
                 lessonDb.IdStudent = lesson.IDStudent;
                 lessonDb.LessonTitle = lesson.LessonTitle;
                 lessonDb.LessonSummary = lesson.LessonSummary;
+                lessonDb.Teacher.FirstName = lesson.TeacherFirstName;
+                lessonDb.Teacher.LastName = lesson.TeacherLastName;
+                lessonDb.Student.FirstName = lesson.StudentFirstName;
+                lessonDb.Student.LastName = lesson.StudentLastName;
                 lessonDb.LessonDate = lesson.LessonDate;
                 lessonDb.Resources = lesson.Resources;
                 lessonDb.Status = lesson.Status;
@@ -102,6 +106,10 @@ namespace ADLVMusicAcademy.Repository
                 lessonDb.IdStudent = lesson.IDStudent;
                 lessonDb.LessonTitle = lesson.LessonTitle;
                 lessonDb.LessonSummary = lesson.LessonSummary;
+                lessonDb.Teacher.FirstName = lesson.TeacherFirstName;
+                lessonDb.Teacher.LastName = lesson.TeacherLastName;
+                lessonDb.Student.FirstName = lesson.StudentFirstName;
+                lessonDb.Student.LastName = lesson.StudentLastName;
                 lessonDb.LessonDate = lesson.LessonDate;
                 lessonDb.Resources = lesson.Resources;
                 lessonDb.Status = lesson.Status;
@@ -123,6 +131,10 @@ namespace ADLVMusicAcademy.Repository
                 lesson.IDStudent = dbLesson.IdStudent;
                 lesson.LessonTitle = dbLesson.LessonTitle;
                 lesson.LessonSummary = dbLesson.LessonSummary;
+                lesson.TeacherFirstName = dbLesson.Teacher.FirstName;
+                lesson.TeacherLastName = dbLesson.Teacher.LastName;
+                lesson.StudentFirstName = dbLesson.Student.FirstName;
+                lesson.StudentLastName = dbLesson.Student.LastName;
                 lesson.LessonDate = dbLesson.LessonDate;
                 lesson.Resources = dbLesson.Resources;
                 lesson.Status = dbLesson.Status;

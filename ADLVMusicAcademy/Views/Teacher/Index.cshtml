@@ -5,60 +5,99 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Your teachers</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+
 </p>
 <table class="table">
     <tr>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.IDTeacher)
+            </th>
+        }
         <th>
-            @Html.DisplayNameFor(model => model.IDTeacher)
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.E_mail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </th>
-        <th></th>
-    </tr>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+        }
+
+        @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Editor"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.E_mail)
+            </th>
+        }
+        </tr>
 
 @foreach (var item in Model) {
-    <tr>
+<tr>
+    @if (User.IsInRole("Admin"))
+    {
         <td>
             @Html.DisplayFor(modelItem => item.IDTeacher)
         </td>
-        <td>
+    }
+    <td>
+        <div class="img-responsive">
+            <img src="@Url.Content(item.Photo)" alt="@item.AlternateText" />
+        </div>
+    </td>
+    <td>
+        <h2>
             @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.LastName)
-        </td>
+        </h2>
+        <h4>@Html.DisplayFor(modelItem => item.Speciality)</h4>
+        <h6>@Html.DisplayFor(modelItem => item.Description)</h6>
+    </td>
+
+    @if (User.IsInRole("Admin"))
+    {
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.E_mail)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Mobile)
         </td>
+    }
+    
+    @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Editor"))
+    {
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IDTeacher }) |
+            @Html.DisplayFor(modelItem => item.E_mail)
+        </td>
+    }
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDTeacher })} |
             @Html.ActionLink("Details", "Details", new { id = item.IDTeacher }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDTeacher })
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDTeacher })}
         </td>
     </tr>
 }
 
+
 </table>
+
+
+

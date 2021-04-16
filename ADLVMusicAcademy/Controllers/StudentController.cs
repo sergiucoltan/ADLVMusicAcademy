@@ -20,6 +20,7 @@ namespace ADLVMusicAcademy.Controllers
             List<StudentModel> students = studentRepository.GetAllStudents();
             return View("Index", students);
         }
+
         [Authorize(Roles = "Editor, Admin")]
         // GET: Student/Details/5
         public ActionResult Details(Guid id)

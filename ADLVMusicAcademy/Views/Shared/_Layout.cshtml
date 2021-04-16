@@ -37,13 +37,14 @@
                         {
                             <li>@Html.ActionLink("News", "Index", "NewsItem")</li>
                             <li>@Html.ActionLink("Lessons", "Index", "Lesson")</li>
+                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
                         }
-
+                        <li>@Html.ActionLink("Teachers", "Index", "Teacher")</li>
                         @if (User.IsInRole("Admin"))
                         {
-                            <li>@Html.ActionLink("Teachers", "Index", "Teacher")</li>
                             <li>@Html.ActionLink("Students", "Index", "Student")</li>
-                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+
+                            <li>@Html.ActionLink("Subscriptions", "Index", "Subscription")</li>
                         }
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>

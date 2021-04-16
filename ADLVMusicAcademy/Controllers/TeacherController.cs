@@ -14,7 +14,7 @@ namespace ADLVMusicAcademy.Controllers
         //injectare repository
         private TeacherRepository teacherRepository = new TeacherRepository();
 
-        [Authorize(Roles = "Admin")]
+        
         // GET: Teacher
         public ActionResult Index()
         {
@@ -22,7 +22,7 @@ namespace ADLVMusicAcademy.Controllers
             return View("Index", teachers);
         }
 
-        [Authorize(Roles = "Admin")]
+        
         // GET: Teacher/Details/5
         public ActionResult Details(Guid id)
         {

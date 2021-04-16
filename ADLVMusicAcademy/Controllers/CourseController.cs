@@ -29,12 +29,14 @@ namespace ADLVMusicAcademy.Controllers
         }
 
         // GET: Course/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View("CreateCourse");
         }
 
         // POST: Course/Create
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -53,6 +55,7 @@ namespace ADLVMusicAcademy.Controllers
         }
 
         // GET: Course/Edit/5
+        [Authorize(Roles = "Editor, Admin")]
         public ActionResult Edit(Guid id)
         {
             CourseModel courseModel = courseRepository.GetCourseById(id);
@@ -60,6 +63,7 @@ namespace ADLVMusicAcademy.Controllers
         }
 
         // POST: Course/Edit/5
+        [Authorize(Roles = "Editor, Admin")]
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
@@ -78,6 +82,7 @@ namespace ADLVMusicAcademy.Controllers
         }
 
         // GET: Course/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             CourseModel courseModel = courseRepository.GetCourseById(id);
@@ -85,6 +90,7 @@ namespace ADLVMusicAcademy.Controllers
         }
 
         // POST: Course/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)
         {

@@ -64,6 +64,8 @@ namespace ADLVMusicAcademy.Repository
             {
                 courseDb.IdCourse = course.IDCourse;
                 courseDb.IdTeacher = course.IDTeacher;
+                courseDb.Teacher.FirstName = course.TeacherFirstName;
+                courseDb.Teacher.LastName = course.TeacherLastName;
                 courseDb.CourseName = course.CourseName;
                 dbContext.SubmitChanges();
             }
@@ -88,6 +90,8 @@ namespace ADLVMusicAcademy.Repository
             {
                 courseDb.IdCourse = course.IDCourse;
                 courseDb.IdTeacher = course.IDTeacher;
+                courseDb.Teacher.FirstName = course.TeacherFirstName;
+                courseDb.Teacher.LastName = course.TeacherLastName;
                 courseDb.CourseName = course.CourseName;
 
                 return courseDb;
@@ -103,6 +107,8 @@ namespace ADLVMusicAcademy.Repository
             {
                 course.IDCourse = dbCourse.IdCourse;
                 course.IDTeacher = dbCourse.IdTeacher;
+                course.TeacherFirstName = dbCourse.Teacher.FirstName;
+                course.TeacherLastName = dbCourse.Teacher.LastName;
                 course.CourseName = dbCourse.CourseName;
 
                 return course;

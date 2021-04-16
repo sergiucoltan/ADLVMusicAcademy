@@ -77,6 +77,11 @@ namespace ADLVMusicAcademy.Repository
                 teacherDb.Address = teacher.Address;
                 teacherDb.E_mail = teacher.E_mail;
                 teacherDb.Mobile = teacher.Mobile;
+                teacherDb.Photo = teacher.Photo;
+                teacherDb.AlternateText = teacher.AlternateText;
+                teacherDb.Speciality = teacher.Speciality;
+                teacherDb.Description = teacher.Description;
+
                 dbContext.SubmitChanges();
             }
         }
@@ -103,6 +108,11 @@ namespace ADLVMusicAcademy.Repository
                 teacherDb.Address = teacher.Address;
                 teacherDb.E_mail = teacher.E_mail;
                 teacherDb.Mobile = teacher.Mobile;
+                teacherDb.Photo = teacher.Photo;
+                teacherDb.AlternateText = teacher.AlternateText;
+                teacherDb.Speciality = teacher.Speciality;
+                teacherDb.Description = teacher.Description;
+
 
                 return teacherDb;
             }
@@ -122,6 +132,11 @@ namespace ADLVMusicAcademy.Repository
                 teacher.Address = dbTeacher.Address;
                 teacher.E_mail = dbTeacher.E_mail;
                 teacher.Mobile = dbTeacher.Mobile;
+                teacher.Photo = dbTeacher.Photo;
+                teacher.AlternateText = dbTeacher.AlternateText;
+                teacher.Speciality = dbTeacher.Speciality;
+                teacher.Description = dbTeacher.Description;
+
 
                 return teacher;
             }

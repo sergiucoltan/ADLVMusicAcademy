@@ -1,0 +1,59 @@
+﻿@model ADLVMusicAcademy.Models.SubscriptionModel
+
+@{
+    ViewBag.Title = "SubscriptionDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SubscriptionDetails</h2>
+
+<div>
+    <h4>SubscriptionModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDSubscription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDSubscription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCourse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDStudent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDStudent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDSubscription}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

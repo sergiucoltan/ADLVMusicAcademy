@@ -11,13 +11,16 @@
     <h4>TeacherModel</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDTeacher)
-        </dt>
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.IDTeacher)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDTeacher)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IDTeacher)
+            </dd>
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -35,33 +38,76 @@
             @Html.DisplayFor(model => model.LastName)
         </dd>
 
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+        }
+
+        @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Editor"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.E_mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.E_mail)
+            </dd>
+        }
+
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>A
+                @Html.DisplayNameFor(model => model.Mobile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mobile)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Photo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Photo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AlternateText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AlternateText)
+            </dd>
+        }
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.Speciality)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.Speciality)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.E_mail)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.E_mail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mobile)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.IDTeacher }) |
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IDTeacher })
+    } |
     @Html.ActionLink("Back to List", "Index")
 </p>

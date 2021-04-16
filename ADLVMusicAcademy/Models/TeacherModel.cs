@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace ADLVMusicAcademy.Models
     {
         public Guid IDTeacher{ get; set; }
 
+        [DisplayName("Teacher Name")]
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(50, ErrorMessage = "String too long (max. 50 chars)")]
         public string FirstName { get; set; }
@@ -29,5 +31,17 @@ namespace ADLVMusicAcademy.Models
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(10, ErrorMessage = "String too long (max. 10 chars)")]
         public string Mobile { get; set; }
+
+        [StringLength(100, ErrorMessage = "String too long (max. 100 chars)")]
+        public string Photo { get; set; }
+
+        [StringLength(100, ErrorMessage = "String too long (max. 100 chars)")]
+        public string AlternateText { get; set; }
+
+        [StringLength(50, ErrorMessage = "String too long (max. 50 chars)")]
+        public string Speciality { get; set; }
+
+        [StringLength(1000, ErrorMessage = "String too long (max. 1000 chars)")]
+        public string Description { get; set; }
     }
 }

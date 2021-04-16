@@ -1,0 +1,65 @@
+﻿@model ADLVMusicAcademy.Models.SubscriptionModel
+
+@{
+    ViewBag.Title = "DeleteSubscription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteSubscription</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SubscriptionModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDSubscription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDSubscription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCourse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDStudent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDStudent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsItemController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +218,10 @@
     <Content Include="Content\img\coversacademy.jpg" />
     <Content Include="Content\img\pexels-pixabay-33779.jpg" />
     <Content Include="Content\img\stage-bgkrnd.jpg" />
+    <Content Include="Content\img\teachers\Cristi.jpg" />
+    <Content Include="Content\img\teachers\Sergiu.jpg" />
+    <Content Include="Content\img\teachers\Tibi.jpg" />
+    <Content Include="Content\img\teachers\Vlad.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -304,6 +309,11 @@
     <Content Include="Views\Course\CreateCourse.cshtml" />
     <Content Include="Views\Course\EditCourse.cshtml" />
     <Content Include="Views\Course\DeleteCourse.cshtml" />
+    <Content Include="Views\Subscription\Index.cshtml" />
+    <Content Include="Views\Subscription\SubscriptionDetails.cshtml" />
+    <Content Include="Views\Subscription\CreateSubscription.cshtml" />
+    <Content Include="Views\Subscription\EditSubscription.cshtml" />
+    <Content Include="Views\Subscription\DeleteSubscription.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
