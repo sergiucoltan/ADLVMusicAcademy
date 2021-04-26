@@ -20,10 +20,12 @@ namespace ADLVMusicAcademy.Models
         [Required(ErrorMessage = "Mandatory field")]
         public Guid IDStudent { get; set; }
 
+        [DisplayName("Lesson Title")]
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(2000, ErrorMessage = "String too long (max. 50 chars)")]
         public string LessonTitle { get; set; }
 
+        [DisplayName("Lesson Summary")]
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(2000, ErrorMessage = "String too long (max. 2000 chars)")]
         public string LessonSummary { get; set; }
@@ -36,6 +38,7 @@ namespace ADLVMusicAcademy.Models
         public string StudentFirstName { get; set; }
         public string StudentLastName { get; set; }
 
+        [DisplayName("Lesson Date")]
         [Required(ErrorMessage = "Mandatory field")]
         public DateTime LessonDate { get; set; }
 

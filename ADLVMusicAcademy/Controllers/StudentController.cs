@@ -15,10 +15,36 @@ namespace ADLVMusicAcademy.Controllers
 
         [Authorize(Roles = "Editor, Admin")]
         // GET: Student
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
             List<StudentModel> students = studentRepository.GetAllStudents();
-            return View("Index", students);
+
+            ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.EmailSortParam = string.IsNullOrEmpty(sortOrder) ? "email_desc" : "";
+            var persons = from s in students select s;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                persons = persons.Where(s => s.FullName.Contains(searchString) || s.E_mail.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    persons = persons.OrderByDescending(s => s.FullName);
+                    break;
+                case "email_desc":
+                    persons = persons.OrderBy(s => s.E_mail);
+                    break;
+                default:
+                    persons = persons.OrderBy(s => s.FullName);
+                    break;
+            }
+
+            return View("Index", persons.ToList());
+
+
+
         }
 
         [Authorize(Roles = "Editor, Admin")]
@@ -28,14 +54,21 @@ namespace ADLVMusicAcademy.Controllers
             StudentModel studentModel = studentRepository.GetStudentById(id);
             return View("StudentDetails", studentModel);
         }
-        [Authorize(Roles = "Admin")]
+
+        public ActionResult Confirm(Guid id)
+        {
+            StudentModel studentModel = studentRepository.GetStudentById(id);
+            return View("ConfirmStudent", studentModel);
+        }
+
+        [Authorize(Roles = "User, Admin")]
         // GET: Student/Create
         public ActionResult Create()
         {
             return View("CreateStudent");
         }
         
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "User, Admin")]
         // POST: Student/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -47,7 +80,7 @@ namespace ADLVMusicAcademy.Controllers
 
                 studentRepository.InsertStudent(studentModel);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Confirm", new { id = studentModel.IDStudent });
             }
             catch
             {

@@ -5,24 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>News</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using(Html.BeginForm()) 
+{
+    <p>
+        Find by title: @Html.TextBox("SearchString")
+        <input type="submit" value="Search"/>
+    </p>
+}
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.IDNewsItem)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title) 
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParam}) 
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Text)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ValidFrom) @*aici ar veni un action link care sa ne permita sa facem un link, pe urma in metoda de index punem un parametru de sortare*@
+            @Html.ActionLink("Valid From", "Index", new {sortOrder = ViewBag.DateSortParam})
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ValidTo)
@@ -54,8 +62,8 @@
             @Html.DisplayFor(modelItem => item.Tags)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.IDNewsItem }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IDNewsItem }) |
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IDNewsItem }) 
+            @Html.ActionLink("Details", "Details", new { id = item.IDNewsItem }) 
             @Html.ActionLink("Delete", "Delete", new { id = item.IDNewsItem })
         </td>
     </tr>

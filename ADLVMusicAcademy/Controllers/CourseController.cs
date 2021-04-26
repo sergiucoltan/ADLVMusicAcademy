@@ -18,6 +18,9 @@ namespace ADLVMusicAcademy.Controllers
         public ActionResult Index()
         {
             List<CourseModel> courseModel = courseRepository.GetAllCourses();
+
+
+
             return View("Index", courseModel);
         }
 
@@ -32,6 +35,11 @@ namespace ADLVMusicAcademy.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
+            var items = courseRepository.GetAllCourses();
+            if (items != null)
+            {
+                ViewBag.data = items;
+            }
             return View("CreateCourse");
         }
 
@@ -42,8 +50,11 @@ namespace ADLVMusicAcademy.Controllers
         {
             try
             {
+
+
                 CourseModel courseModel = new CourseModel();
                 UpdateModel(courseModel);
+
                 courseRepository.InsertCourse(courseModel);
 
                 return RedirectToAction("Index");

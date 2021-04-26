@@ -49,6 +49,16 @@ namespace ADLVMusicAcademy.Repository
             return subscriptionList;
         }
 
+        public List<SubscriptionModel> GetSubscriptionsBySubscriptionTypeId(int ID)
+        {
+            List<SubscriptionModel> subscriptionList = new List<SubscriptionModel>();
+            foreach (Subscription dbSubscription in dbContext.Subscriptions.Where(x => x.IdSubscriptionType == ID))
+            {
+                subscriptionList.Add(MapDbObjectToModel(dbSubscription));
+            }
+            return subscriptionList;
+        }
+
         public void InsertSubscription(SubscriptionModel subscription)
         {
             subscription.IDSubscription = Guid.NewGuid();
@@ -65,6 +75,9 @@ namespace ADLVMusicAcademy.Repository
                 subscriptionDb.IdSubscription = subscription.IDSubscription;
                 subscriptionDb.IdCourse = subscription.IDCourse;
                 subscriptionDb.IdStudent = subscription.IDStudent;
+                subscriptionDb.IdSubscriptionType = subscription.IDSubscriptionType;
+                subscriptionDb.Student.FirstName = subscription.StudentFirstName;
+                subscriptionDb.Student.LastName = subscription.StudentLastName;
                 subscriptionDb.StartDate = subscription.StartDate;
                 subscriptionDb.EndDate = subscription.EndDate;
                 dbContext.SubmitChanges();
@@ -91,6 +104,7 @@ namespace ADLVMusicAcademy.Repository
                 subscriptionDb.IdSubscription = subscription.IDSubscription;
                 subscriptionDb.IdCourse = subscription.IDCourse;
                 subscriptionDb.IdStudent = subscription.IDStudent;
+                subscriptionDb.IdSubscriptionType = subscription.IDSubscriptionType;
                 subscriptionDb.StartDate = subscription.StartDate;
                 subscriptionDb.EndDate = subscription.EndDate;
 
@@ -109,6 +123,10 @@ namespace ADLVMusicAcademy.Repository
                 subscription.IDSubscription = dbSubscription.IdSubscription;
                 subscription.IDCourse = dbSubscription.IdCourse;
                 subscription.IDStudent = dbSubscription.IdStudent;
+                subscription.IDSubscriptionType = dbSubscription.IdSubscriptionType;
+                subscription.SubscriptionTypeName = dbSubscription.SubscriptionType.SubscriptionTypeName;
+                subscription.StudentFirstName = dbSubscription.Student.FirstName;
+                subscription.StudentLastName = dbSubscription.Student.LastName;
                 subscription.StartDate = dbSubscription.StartDate;
                 subscription.EndDate = dbSubscription.EndDate;
 

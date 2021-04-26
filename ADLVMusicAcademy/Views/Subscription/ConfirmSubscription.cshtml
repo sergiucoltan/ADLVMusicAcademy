@@ -1,0 +1,90 @@
+﻿@model ADLVMusicAcademy.Models.SubscriptionModel
+
+@{
+    ViewBag.Title = "ConfirmSubscription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>You have successfully subscribed!</h2>
+
+<div>
+    <h4>Your subscription details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDSubscription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDSubscription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCourse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDStudent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDStudent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDSubscriptionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDSubscriptionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubscriptionTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubscriptionTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Home", "Index", "Home")
+</p>

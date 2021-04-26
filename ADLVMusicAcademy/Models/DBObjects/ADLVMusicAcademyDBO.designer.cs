@@ -45,15 +45,18 @@ namespace ADLVMusicAcademy.Models.DBObjects
     partial void InsertStudent(Student instance);
     partial void UpdateStudent(Student instance);
     partial void DeleteStudent(Student instance);
-    partial void InsertSubscription(Subscription instance);
-    partial void UpdateSubscription(Subscription instance);
-    partial void DeleteSubscription(Subscription instance);
     partial void InsertLesson(Lesson instance);
     partial void UpdateLesson(Lesson instance);
     partial void DeleteLesson(Lesson instance);
     partial void InsertTeacher(Teacher instance);
     partial void UpdateTeacher(Teacher instance);
     partial void DeleteTeacher(Teacher instance);
+    partial void InsertSubscriptionType(SubscriptionType instance);
+    partial void UpdateSubscriptionType(SubscriptionType instance);
+    partial void DeleteSubscriptionType(SubscriptionType instance);
+    partial void InsertSubscription(Subscription instance);
+    partial void UpdateSubscription(Subscription instance);
+    partial void DeleteSubscription(Subscription instance);
     #endregion
 		
 		public ADLVMusicAcademyDBODataContext() : 
@@ -126,14 +129,6 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			}
 		}
 		
-		public System.Data.Linq.Table<Subscription> Subscriptions
-		{
-			get
-			{
-				return this.GetTable<Subscription>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Lesson> Lessons
 		{
 			get
@@ -147,6 +142,22 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			get
 			{
 				return this.GetTable<Teacher>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SubscriptionType> SubscriptionTypes
+		{
+			get
+			{
+				return this.GetTable<SubscriptionType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Subscription> Subscriptions
+		{
+			get
+			{
+				return this.GetTable<Subscription>();
 			}
 		}
 	}
@@ -249,9 +260,9 @@ namespace ADLVMusicAcademy.Models.DBObjects
 		
 		private string _CourseName;
 		
-		private EntitySet<Subscription> _Subscriptions;
-		
 		private EntitySet<Lesson> _Lessons;
+		
+		private EntitySet<Subscription> _Subscriptions;
 		
 		private EntityRef<Teacher> _Teacher;
 		
@@ -269,8 +280,8 @@ namespace ADLVMusicAcademy.Models.DBObjects
 		
 		public Course()
 		{
-			this._Subscriptions = new EntitySet<Subscription>(new Action<Subscription>(this.attach_Subscriptions), new Action<Subscription>(this.detach_Subscriptions));
 			this._Lessons = new EntitySet<Lesson>(new Action<Lesson>(this.attach_Lessons), new Action<Lesson>(this.detach_Lessons));
+			this._Subscriptions = new EntitySet<Subscription>(new Action<Subscription>(this.attach_Subscriptions), new Action<Subscription>(this.detach_Subscriptions));
 			this._Teacher = default(EntityRef<Teacher>);
 			OnCreated();
 		}
@@ -339,19 +350,6 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Subscription", Storage="_Subscriptions", ThisKey="IdCourse", OtherKey="IdCourse")]
-		public EntitySet<Subscription> Subscriptions
-		{
-			get
-			{
-				return this._Subscriptions;
-			}
-			set
-			{
-				this._Subscriptions.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Lesson", Storage="_Lessons", ThisKey="IdCourse", OtherKey="IdCourse")]
 		public EntitySet<Lesson> Lessons
 		{
@@ -362,6 +360,19 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			set
 			{
 				this._Lessons.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Subscription", Storage="_Subscriptions", ThisKey="IdCourse", OtherKey="IdCourse")]
+		public EntitySet<Subscription> Subscriptions
+		{
+			get
+			{
+				return this._Subscriptions;
+			}
+			set
+			{
+				this._Subscriptions.Assign(value);
 			}
 		}
 		
@@ -419,18 +430,6 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			}
 		}
 		
-		private void attach_Subscriptions(Subscription entity)
-		{
-			this.SendPropertyChanging();
-			entity.Course = this;
-		}
-		
-		private void detach_Subscriptions(Subscription entity)
-		{
-			this.SendPropertyChanging();
-			entity.Course = null;
-		}
-		
 		private void attach_Lessons(Lesson entity)
 		{
 			this.SendPropertyChanging();
@@ -438,6 +437,18 @@ namespace ADLVMusicAcademy.Models.DBObjects
 		}
 		
 		private void detach_Lessons(Lesson entity)
+		{
+			this.SendPropertyChanging();
+			entity.Course = null;
+		}
+		
+		private void attach_Subscriptions(Subscription entity)
+		{
+			this.SendPropertyChanging();
+			entity.Course = this;
+		}
+		
+		private void detach_Subscriptions(Subscription entity)
 		{
 			this.SendPropertyChanging();
 			entity.Course = null;
@@ -826,9 +837,9 @@ namespace ADLVMusicAcademy.Models.DBObjects
 		
 		private string _Mobile;
 		
-		private EntitySet<Subscription> _Subscriptions;
-		
 		private EntitySet<Lesson> _Lessons;
+		
+		private EntitySet<Subscription> _Subscriptions;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -850,8 +861,8 @@ namespace ADLVMusicAcademy.Models.DBObjects
 		
 		public Student()
 		{
-			this._Subscriptions = new EntitySet<Subscription>(new Action<Subscription>(this.attach_Subscriptions), new Action<Subscription>(this.detach_Subscriptions));
 			this._Lessons = new EntitySet<Lesson>(new Action<Lesson>(this.attach_Lessons), new Action<Lesson>(this.detach_Lessons));
+			this._Subscriptions = new EntitySet<Subscription>(new Action<Subscription>(this.attach_Subscriptions), new Action<Subscription>(this.detach_Subscriptions));
 			OnCreated();
 		}
 		
@@ -975,19 +986,6 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Subscription", Storage="_Subscriptions", ThisKey="IdStudent", OtherKey="IdStudent")]
-		public EntitySet<Subscription> Subscriptions
-		{
-			get
-			{
-				return this._Subscriptions;
-			}
-			set
-			{
-				this._Subscriptions.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Lesson", Storage="_Lessons", ThisKey="IdStudent", OtherKey="IdStudent")]
 		public EntitySet<Lesson> Lessons
 		{
@@ -1001,6 +999,19 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Subscription", Storage="_Subscriptions", ThisKey="IdStudent", OtherKey="IdStudent")]
+		public EntitySet<Subscription> Subscriptions
+		{
+			get
+			{
+				return this._Subscriptions;
+			}
+			set
+			{
+				this._Subscriptions.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1019,18 +1030,6 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Subscriptions(Subscription entity)
-		{
-			this.SendPropertyChanging();
-			entity.Student = this;
-		}
-		
-		private void detach_Subscriptions(Subscription entity)
-		{
-			this.SendPropertyChanging();
-			entity.Student = null;
 		}
 		
 		private void attach_Lessons(Lesson entity)
@@ -1044,245 +1043,17 @@ namespace ADLVMusicAcademy.Models.DBObjects
 			this.SendPropertyChanging();
 			entity.Student = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Subscriptions")]
-	public partial class Subscription : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _IdSubscription;
-		
-		private System.Guid _IdCourse;
-		
-		private System.Guid _IdStudent;
-		
-		private System.DateTime _StartDate;
-		
-		private System.DateTime _EndDate;
-		
-		private EntityRef<Course> _Course;
-		
-		private EntityRef<Student> _Student;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdSubscriptionChanging(System.Guid value);
-    partial void OnIdSubscriptionChanged();
-    partial void OnIdCourseChanging(System.Guid value);
-    partial void OnIdCourseChanged();
-    partial void OnIdStudentChanging(System.Guid value);
-    partial void OnIdStudentChanged();
-    partial void OnStartDateChanging(System.DateTime value);
-    partial void OnStartDateChanged();
-    partial void OnEndDateChanging(System.DateTime value);
-    partial void OnEndDateChanged();
-    #endregion
-		
-		public Subscription()
+		private void attach_Subscriptions(Subscription entity)
 		{
-			this._Course = default(EntityRef<Course>);
-			this._Student = default(EntityRef<Student>);
-			OnCreated();
+			this.SendPropertyChanging();
+			entity.Student = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSubscription", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid IdSubscription
+		private void detach_Subscriptions(Subscription entity)
 		{
-			get
-			{
-				return this._IdSubscription;
-			}
-			set
-			{
-				if ((this._IdSubscription != value))
-				{
-					this.OnIdSubscriptionChanging(value);
-					this.SendPropertyChanging();
-					this._IdSubscription = value;
-					this.SendPropertyChanged("IdSubscription");
-					this.OnIdSubscriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCourse", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IdCourse
-		{
-			get
-			{
-				return this._IdCourse;
-			}
-			set
-			{
-				if ((this._IdCourse != value))
-				{
-					if (this._Course.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdCourseChanging(value);
-					this.SendPropertyChanging();
-					this._IdCourse = value;
-					this.SendPropertyChanged("IdCourse");
-					this.OnIdCourseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdStudent", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IdStudent
-		{
-			get
-			{
-				return this._IdStudent;
-			}
-			set
-			{
-				if ((this._IdStudent != value))
-				{
-					if (this._Student.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdStudentChanging(value);
-					this.SendPropertyChanging();
-					this._IdStudent = value;
-					this.SendPropertyChanged("IdStudent");
-					this.OnIdStudentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime NOT NULL")]
-		public System.DateTime StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime NOT NULL")]
-		public System.DateTime EndDate
-		{
-			get
-			{
-				return this._EndDate;
-			}
-			set
-			{
-				if ((this._EndDate != value))
-				{
-					this.OnEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._EndDate = value;
-					this.SendPropertyChanged("EndDate");
-					this.OnEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Subscription", Storage="_Course", ThisKey="IdCourse", OtherKey="IdCourse", IsForeignKey=true)]
-		public Course Course
-		{
-			get
-			{
-				return this._Course.Entity;
-			}
-			set
-			{
-				Course previousValue = this._Course.Entity;
-				if (((previousValue != value) 
-							|| (this._Course.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Course.Entity = null;
-						previousValue.Subscriptions.Remove(this);
-					}
-					this._Course.Entity = value;
-					if ((value != null))
-					{
-						value.Subscriptions.Add(this);
-						this._IdCourse = value.IdCourse;
-					}
-					else
-					{
-						this._IdCourse = default(System.Guid);
-					}
-					this.SendPropertyChanged("Course");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Subscription", Storage="_Student", ThisKey="IdStudent", OtherKey="IdStudent", IsForeignKey=true)]
-		public Student Student
-		{
-			get
-			{
-				return this._Student.Entity;
-			}
-			set
-			{
-				Student previousValue = this._Student.Entity;
-				if (((previousValue != value) 
-							|| (this._Student.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Student.Entity = null;
-						previousValue.Subscriptions.Remove(this);
-					}
-					this._Student.Entity = value;
-					if ((value != null))
-					{
-						value.Subscriptions.Add(this);
-						this._IdStudent = value.IdStudent;
-					}
-					else
-					{
-						this._IdStudent = default(System.Guid);
-					}
-					this.SendPropertyChanged("Student");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.Student = null;
 		}
 	}
 	
@@ -1994,6 +1765,425 @@ namespace ADLVMusicAcademy.Models.DBObjects
 		{
 			this.SendPropertyChanging();
 			entity.Teacher = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SubscriptionTypes")]
+	public partial class SubscriptionType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdSubscriptionType;
+		
+		private string _SubscriptionTypeName;
+		
+		private EntitySet<Subscription> _Subscriptions;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdSubscriptionTypeChanging(int value);
+    partial void OnIdSubscriptionTypeChanged();
+    partial void OnSubscriptionTypeNameChanging(string value);
+    partial void OnSubscriptionTypeNameChanged();
+    #endregion
+		
+		public SubscriptionType()
+		{
+			this._Subscriptions = new EntitySet<Subscription>(new Action<Subscription>(this.attach_Subscriptions), new Action<Subscription>(this.detach_Subscriptions));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSubscriptionType", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdSubscriptionType
+		{
+			get
+			{
+				return this._IdSubscriptionType;
+			}
+			set
+			{
+				if ((this._IdSubscriptionType != value))
+				{
+					this.OnIdSubscriptionTypeChanging(value);
+					this.SendPropertyChanging();
+					this._IdSubscriptionType = value;
+					this.SendPropertyChanged("IdSubscriptionType");
+					this.OnIdSubscriptionTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubscriptionTypeName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string SubscriptionTypeName
+		{
+			get
+			{
+				return this._SubscriptionTypeName;
+			}
+			set
+			{
+				if ((this._SubscriptionTypeName != value))
+				{
+					this.OnSubscriptionTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._SubscriptionTypeName = value;
+					this.SendPropertyChanged("SubscriptionTypeName");
+					this.OnSubscriptionTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SubscriptionType_Subscription", Storage="_Subscriptions", ThisKey="IdSubscriptionType", OtherKey="IdSubscriptionType")]
+		public EntitySet<Subscription> Subscriptions
+		{
+			get
+			{
+				return this._Subscriptions;
+			}
+			set
+			{
+				this._Subscriptions.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Subscriptions(Subscription entity)
+		{
+			this.SendPropertyChanging();
+			entity.SubscriptionType = this;
+		}
+		
+		private void detach_Subscriptions(Subscription entity)
+		{
+			this.SendPropertyChanging();
+			entity.SubscriptionType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Subscriptions")]
+	public partial class Subscription : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _IdSubscription;
+		
+		private System.Guid _IdCourse;
+		
+		private System.Guid _IdStudent;
+		
+		private int _IdSubscriptionType;
+		
+		private System.DateTime _StartDate;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private EntityRef<Course> _Course;
+		
+		private EntityRef<Student> _Student;
+		
+		private EntityRef<SubscriptionType> _SubscriptionType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdSubscriptionChanging(System.Guid value);
+    partial void OnIdSubscriptionChanged();
+    partial void OnIdCourseChanging(System.Guid value);
+    partial void OnIdCourseChanged();
+    partial void OnIdStudentChanging(System.Guid value);
+    partial void OnIdStudentChanged();
+    partial void OnIdSubscriptionTypeChanging(int value);
+    partial void OnIdSubscriptionTypeChanged();
+    partial void OnStartDateChanging(System.DateTime value);
+    partial void OnStartDateChanged();
+    partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateChanged();
+    #endregion
+		
+		public Subscription()
+		{
+			this._Course = default(EntityRef<Course>);
+			this._Student = default(EntityRef<Student>);
+			this._SubscriptionType = default(EntityRef<SubscriptionType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSubscription", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid IdSubscription
+		{
+			get
+			{
+				return this._IdSubscription;
+			}
+			set
+			{
+				if ((this._IdSubscription != value))
+				{
+					this.OnIdSubscriptionChanging(value);
+					this.SendPropertyChanging();
+					this._IdSubscription = value;
+					this.SendPropertyChanged("IdSubscription");
+					this.OnIdSubscriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCourse", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IdCourse
+		{
+			get
+			{
+				return this._IdCourse;
+			}
+			set
+			{
+				if ((this._IdCourse != value))
+				{
+					if (this._Course.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdCourseChanging(value);
+					this.SendPropertyChanging();
+					this._IdCourse = value;
+					this.SendPropertyChanged("IdCourse");
+					this.OnIdCourseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdStudent", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IdStudent
+		{
+			get
+			{
+				return this._IdStudent;
+			}
+			set
+			{
+				if ((this._IdStudent != value))
+				{
+					if (this._Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdStudentChanging(value);
+					this.SendPropertyChanging();
+					this._IdStudent = value;
+					this.SendPropertyChanged("IdStudent");
+					this.OnIdStudentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSubscriptionType", DbType="Int NOT NULL")]
+		public int IdSubscriptionType
+		{
+			get
+			{
+				return this._IdSubscriptionType;
+			}
+			set
+			{
+				if ((this._IdSubscriptionType != value))
+				{
+					if (this._SubscriptionType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdSubscriptionTypeChanging(value);
+					this.SendPropertyChanging();
+					this._IdSubscriptionType = value;
+					this.SendPropertyChanged("IdSubscriptionType");
+					this.OnIdSubscriptionTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime NOT NULL")]
+		public System.DateTime StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this.OnEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._EndDate = value;
+					this.SendPropertyChanged("EndDate");
+					this.OnEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Subscription", Storage="_Course", ThisKey="IdCourse", OtherKey="IdCourse", IsForeignKey=true)]
+		public Course Course
+		{
+			get
+			{
+				return this._Course.Entity;
+			}
+			set
+			{
+				Course previousValue = this._Course.Entity;
+				if (((previousValue != value) 
+							|| (this._Course.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Course.Entity = null;
+						previousValue.Subscriptions.Remove(this);
+					}
+					this._Course.Entity = value;
+					if ((value != null))
+					{
+						value.Subscriptions.Add(this);
+						this._IdCourse = value.IdCourse;
+					}
+					else
+					{
+						this._IdCourse = default(System.Guid);
+					}
+					this.SendPropertyChanged("Course");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Subscription", Storage="_Student", ThisKey="IdStudent", OtherKey="IdStudent", IsForeignKey=true)]
+		public Student Student
+		{
+			get
+			{
+				return this._Student.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student.Entity;
+				if (((previousValue != value) 
+							|| (this._Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student.Entity = null;
+						previousValue.Subscriptions.Remove(this);
+					}
+					this._Student.Entity = value;
+					if ((value != null))
+					{
+						value.Subscriptions.Add(this);
+						this._IdStudent = value.IdStudent;
+					}
+					else
+					{
+						this._IdStudent = default(System.Guid);
+					}
+					this.SendPropertyChanged("Student");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SubscriptionType_Subscription", Storage="_SubscriptionType", ThisKey="IdSubscriptionType", OtherKey="IdSubscriptionType", IsForeignKey=true)]
+		public SubscriptionType SubscriptionType
+		{
+			get
+			{
+				return this._SubscriptionType.Entity;
+			}
+			set
+			{
+				SubscriptionType previousValue = this._SubscriptionType.Entity;
+				if (((previousValue != value) 
+							|| (this._SubscriptionType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SubscriptionType.Entity = null;
+						previousValue.Subscriptions.Remove(this);
+					}
+					this._SubscriptionType.Entity = value;
+					if ((value != null))
+					{
+						value.Subscriptions.Add(this);
+						this._IdSubscriptionType = value.IdSubscriptionType;
+					}
+					else
+					{
+						this._IdSubscriptionType = default(int);
+					}
+					this.SendPropertyChanged("SubscriptionType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

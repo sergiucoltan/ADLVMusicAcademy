@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Subscription Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -22,7 +24,19 @@
             @Html.DisplayNameFor(model => model.IDStudent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StartDate)
+            @Html.ActionLink("IdSubscriptionType", "Index", new { sortOrder = ViewBag.SubscriptionTypeSortParam })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubscriptionTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentFirstName)
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParam })
+        </th>
+        <th>
+            @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.DateSortParam })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EndDate)
@@ -30,29 +44,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDSubscription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDCourse)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDStudent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {id=item.IDSubscription}) |
-            @Html.ActionLink("Details", "Details", new { id = item.IDSubscription }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDSubscription })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSubscription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDCourse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDStudent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSubscriptionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDSubscription }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDSubscription }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDSubscription })
+            </td>
+        </tr>
+    }
 
 </table>

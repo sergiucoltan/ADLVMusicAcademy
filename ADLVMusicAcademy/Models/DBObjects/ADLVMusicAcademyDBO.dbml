@@ -11,8 +11,8 @@
       <Column Name="IdCourse" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="IdTeacher" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="CourseName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Association Name="Course_Subscription" Member="Subscriptions" ThisKey="IdCourse" OtherKey="IdCourse" Type="Subscription" />
       <Association Name="Course_Lesson" Member="Lessons" ThisKey="IdCourse" OtherKey="IdCourse" Type="Lesson" />
+      <Association Name="Course_Subscription" Member="Subscriptions" ThisKey="IdCourse" OtherKey="IdCourse" Type="Subscription" />
       <Association Name="Teacher_Course" Member="Teacher" ThisKey="IdTeacher" OtherKey="IdTeacher" Type="Teacher" IsForeignKey="true" />
     </Type>
   </Table>
@@ -44,19 +44,8 @@
       <Column Name="Address" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
       <Column Name="[E-mail]" Member="E_mail" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Mobile" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="Student_Subscription" Member="Subscriptions" ThisKey="IdStudent" OtherKey="IdStudent" Type="Subscription" />
       <Association Name="Student_Lesson" Member="Lessons" ThisKey="IdStudent" OtherKey="IdStudent" Type="Lesson" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Subscriptions" Member="Subscriptions">
-    <Type Name="Subscription">
-      <Column Name="IdSubscription" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdCourse" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="IdStudent" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Course_Subscription" Member="Course" ThisKey="IdCourse" OtherKey="IdCourse" Type="Course" IsForeignKey="true" />
-      <Association Name="Student_Subscription" Member="Student" ThisKey="IdStudent" OtherKey="IdStudent" Type="Student" IsForeignKey="true" />
+      <Association Name="Student_Subscription" Member="Subscriptions" ThisKey="IdStudent" OtherKey="IdStudent" Type="Subscription" />
     </Type>
   </Table>
   <Table Name="dbo.Lessons" Member="Lessons">
@@ -89,6 +78,26 @@
       <Column Name="Description" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Association Name="Teacher_Course" Member="Courses" ThisKey="IdTeacher" OtherKey="IdTeacher" Type="Course" />
       <Association Name="Teacher_Lesson" Member="Lessons" ThisKey="IdTeacher" OtherKey="IdTeacher" Type="Lesson" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubscriptionTypes" Member="SubscriptionTypes">
+    <Type Name="SubscriptionType">
+      <Column Name="IdSubscriptionType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubscriptionTypeName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="SubscriptionType_Subscription" Member="Subscriptions" ThisKey="IdSubscriptionType" OtherKey="IdSubscriptionType" Type="Subscription" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Subscriptions" Member="Subscriptions">
+    <Type Name="Subscription">
+      <Column Name="IdSubscription" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdCourse" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="IdStudent" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="IdSubscriptionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Course_Subscription" Member="Course" ThisKey="IdCourse" OtherKey="IdCourse" Type="Course" IsForeignKey="true" />
+      <Association Name="Student_Subscription" Member="Student" ThisKey="IdStudent" OtherKey="IdStudent" Type="Student" IsForeignKey="true" />
+      <Association Name="SubscriptionType_Subscription" Member="SubscriptionType" ThisKey="IdSubscriptionType" OtherKey="IdSubscriptionType" Type="SubscriptionType" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

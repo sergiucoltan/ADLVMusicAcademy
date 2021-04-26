@@ -26,7 +26,7 @@
 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam})
         </th>
         @if (User.IsInRole("Admin"))
         {
@@ -55,7 +55,7 @@
         </td>
     }
     <td>
-        <div class="img-responsive">
+        <div class="card-container img-responsive">
             <img src="@Url.Content(item.Photo)" alt="@item.AlternateText" />
         </div>
     </td>
@@ -84,15 +84,27 @@
             @Html.DisplayFor(modelItem => item.E_mail)
         </td>
     }
-        <td>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.IDTeacher })} |
-            @Html.ActionLink("Details", "Details", new { id = item.IDTeacher }) |
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Delete", "Delete", new { id = item.IDTeacher })}
-        </td>
+<td>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = item.IDTeacher })}
+    @Html.ActionLink("Details", "Details", new { id = item.IDTeacher })
+
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Delete", "Delete", new { id = item.IDTeacher })}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @Html.ActionLink("Subscribe to course", "Create", "Subscription")
+</td>
     </tr>
 }
 

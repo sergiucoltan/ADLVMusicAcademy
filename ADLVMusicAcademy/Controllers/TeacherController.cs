@@ -16,10 +16,23 @@ namespace ADLVMusicAcademy.Controllers
 
         
         // GET: Teacher
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
             List<TeacherModel> teachers = teacherRepository.GetAllTeachers();
-            return View("Index", teachers);
+
+            ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            var persons = from s in teachers select s;
+
+            if (sortOrder == "name_desc") 
+            {
+                persons = persons.OrderByDescending(s => s.LastName);
+            }
+            else
+            {
+                persons = persons.OrderBy(s => s.LastName);
+            }
+
+            return View("Index", persons.ToList());
         }
 
         

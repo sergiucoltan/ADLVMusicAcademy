@@ -12,14 +12,16 @@ namespace ADLVMusicAcademy.Controllers
     {
         //injectare repository
         private LessonRepository lessonRepository = new LessonRepository();
+        private StudentRepository studentRepository = new StudentRepository();
 
 
         // GET: Lesson
         [Authorize(Roles = "User, Editor, Admin")]
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             List<LessonModel> lessonModels = lessonRepository.GetAllLessons();
-            return View("Index", lessonModels);
+               
+                return View("Index", lessonModels);
         }
 
 

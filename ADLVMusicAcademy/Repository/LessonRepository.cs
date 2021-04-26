@@ -54,6 +54,7 @@ namespace ADLVMusicAcademy.Repository
             return lessonList;
         }
 
+
         public void InsertLesson(LessonModel lesson)
         {
             lesson.IDLesson = Guid.NewGuid();
@@ -72,10 +73,6 @@ namespace ADLVMusicAcademy.Repository
                 lessonDb.IdStudent = lesson.IDStudent;
                 lessonDb.LessonTitle = lesson.LessonTitle;
                 lessonDb.LessonSummary = lesson.LessonSummary;
-                lessonDb.Teacher.FirstName = lesson.TeacherFirstName;
-                lessonDb.Teacher.LastName = lesson.TeacherLastName;
-                lessonDb.Student.FirstName = lesson.StudentFirstName;
-                lessonDb.Student.LastName = lesson.StudentLastName;
                 lessonDb.LessonDate = lesson.LessonDate;
                 lessonDb.Resources = lesson.Resources;
                 lessonDb.Status = lesson.Status;
@@ -106,10 +103,6 @@ namespace ADLVMusicAcademy.Repository
                 lessonDb.IdStudent = lesson.IDStudent;
                 lessonDb.LessonTitle = lesson.LessonTitle;
                 lessonDb.LessonSummary = lesson.LessonSummary;
-                lessonDb.Teacher.FirstName = lesson.TeacherFirstName;
-                lessonDb.Teacher.LastName = lesson.TeacherLastName;
-                lessonDb.Student.FirstName = lesson.StudentFirstName;
-                lessonDb.Student.LastName = lesson.StudentLastName;
                 lessonDb.LessonDate = lesson.LessonDate;
                 lessonDb.Resources = lesson.Resources;
                 lessonDb.Status = lesson.Status;

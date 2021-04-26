@@ -15,11 +15,36 @@ namespace ADLVMusicAcademy.Controllers
 
         [AllowAnonymous]
         // GET: NewsItem
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
             List<NewsItemModel> newsItems = newsItemRepository.GetAllNewsItems();
 
-            return View("Index", newsItems);
+            ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
+            var news = from s in newsItems select s;
+
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                news = news.Where(s => s.Title.Contains(searchString) || s.Text.Contains(searchString) || s.Tags.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    news = news.OrderByDescending(s => s.Title);
+                    break;
+                case "Date":
+                    news = news.OrderBy(s => s.ValidFrom);
+                    break;
+                case "date_desc":
+                    news = news.OrderByDescending(s => s.ValidFrom);
+                    break;
+                default:
+                    news = news.OrderBy(s => s.Title);
+                    break;
+            }
+
+            return View("Index", news.ToList());
         }
 
         // GET: NewsItem/Details/5

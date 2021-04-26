@@ -52,16 +52,18 @@
             @Html.DisplayFor(modelItem => item.TeacherLastName)
         </td>
         <td>
-            @if (User.IsInRole("Admin") || User.IsInRole("Editor")) 
+            @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.IDCourse })} |
-            
-            @Html.ActionLink("Details", "Details", new { id = item.IDCourse }) |
-            
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDCourse })}
+
+            @Html.ActionLink("Details", "Details", new { id = item.IDCourse })
+
             @if (User.IsInRole("Admin"))
             {
                 @Html.ActionLink("Delete", "Delete", new { id = item.IDCourse })}
-            </td>
+            <br />
+            @Html.ActionLink("Subscribe to this course", "Create", "Subscription")
+        </td>
     </tr>
 }
 

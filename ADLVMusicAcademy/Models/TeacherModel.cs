@@ -24,6 +24,7 @@ namespace ADLVMusicAcademy.Models
         [StringLength(1000, ErrorMessage = "String too long (max. 1000 chars)")]
         public string Address { get; set; }
 
+        [DisplayName("E-mail")]
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(50, ErrorMessage = "String too long (max. 50 chars)")]
         public string E_mail { get; set; }
