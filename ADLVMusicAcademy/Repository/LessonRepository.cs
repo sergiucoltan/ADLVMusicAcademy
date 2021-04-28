@@ -54,6 +54,20 @@ namespace ADLVMusicAcademy.Repository
             return lessonList;
         }
 
+        public List<LessonModel> GetLessonByStudentName(string name)
+        {
+            List<LessonModel> lessonList = new List<LessonModel>();
+            if(!string.IsNullOrEmpty(name))
+            {
+                foreach(Lesson dbLesson in dbContext.Lessons.Where(x => x.Student.LastName == (name) || x.Student.FirstName ==(name)))
+                {
+                    lessonList.Add(MapDbObjectToModel(dbLesson));
+                }
+            }
+
+            return lessonList;
+        }
+
 
         public void InsertLesson(LessonModel lesson)
         {

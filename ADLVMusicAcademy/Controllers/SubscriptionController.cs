@@ -21,6 +21,7 @@ namespace ADLVMusicAcademy.Controllers
         public ActionResult Index(string sortOrder, string searchString)
         {
             List<SubscriptionModel> subscriptions = subscriptionRepository.GetAllSubscriptions();
+            
 
             ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.SubscriptionTypeSortParam = string.IsNullOrEmpty(sortOrder) ? "subscriptionType_desc" : "";
@@ -28,7 +29,11 @@ namespace ADLVMusicAcademy.Controllers
 
             var subs = from s in subscriptions select s;
 
-           
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                subs = subscriptionRepository.GetSubscriptionsByStudentName(searchString);
+            }
+
             switch (sortOrder)
             {
                 case "name_desc":

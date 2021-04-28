@@ -90,8 +90,6 @@ namespace ADLVMusicAcademy.Repository
             {
                 courseDb.IdCourse = course.IDCourse;
                 courseDb.IdTeacher = course.IDTeacher;
-                courseDb.Teacher.FirstName = course.TeacherFirstName;
-                courseDb.Teacher.LastName = course.TeacherLastName;
                 courseDb.CourseName = course.CourseName;
 
                 return courseDb;

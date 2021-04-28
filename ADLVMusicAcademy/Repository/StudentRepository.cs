@@ -51,10 +51,14 @@ namespace ADLVMusicAcademy.Repository
         public List<StudentModel> GetStudentByName(string name)
         {
             List<StudentModel> studentList = new List<StudentModel>();
-            foreach (Student dbStudent in dbContext.Students.Where(x => x.LastName.Contains(name) || x.FirstName.Contains(name)))
+            if (!string.IsNullOrEmpty(name)) 
             {
-                studentList.Add(MapDbObjectToModel(dbStudent));
+                foreach (Student dbStudent in dbContext.Students.Where(x => x.LastName.Contains(name) || x.FirstName.Contains(name)))
+                {
+                    studentList.Add(MapDbObjectToModel(dbStudent));
+                }
             }
+            
             return studentList;
         }
 

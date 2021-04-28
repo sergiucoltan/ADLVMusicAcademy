@@ -28,7 +28,7 @@
         <th>
             @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam})
         </th>
-        @if (User.IsInRole("Admin"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
         {
             <th>
                 @Html.DisplayNameFor(model => model.Address)
@@ -68,7 +68,7 @@
         <h6>@Html.DisplayFor(modelItem => item.Description)</h6>
     </td>
 
-    @if (User.IsInRole("Admin"))
+    @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
     {
         <td>
             @Html.DisplayFor(modelItem => item.Address)
@@ -85,7 +85,7 @@
         </td>
     }
 <td>
-    @if (User.IsInRole("Admin"))
+    @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
     {
         @Html.ActionLink("Edit", "Edit", new { id = item.IDTeacher })}
     @Html.ActionLink("Details", "Details", new { id = item.IDTeacher })

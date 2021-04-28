@@ -20,24 +20,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDCourse, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDCourse, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IDCourse, "", new { @class = "text-danger" })
+                @Html.DropDownList("CourseName", ViewBag.VBCourseList as SelectList, "Select course")
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IDTeacher, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDTeacher, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IDTeacher, "", new { @class = "text-danger" })
+                @Html.DropDownList("FirstName", ViewBag.VBTeacherList as SelectList, "Select teacher")
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IDStudent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDStudent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IDStudent, "", new { @class = "text-danger" })
+                @Html.DropDownList("FullName", ViewBag.VBStudentList as SelectList, "Select student")
             </div>
         </div>
 

@@ -42,9 +42,12 @@ namespace ADLVMusicAcademy.Repository
         public List<SubscriptionModel> GetSubscriptionsByStudentName(string name)
         {
             List<SubscriptionModel> subscriptionList = new List<SubscriptionModel>();
-            foreach (Subscription dbSubscription in dbContext.Subscriptions.Where(x => x.Student.LastName.Contains(name) || x.Student.FirstName.Contains(name)))
+            if (!string.IsNullOrEmpty(name))
             {
-                subscriptionList.Add(MapDbObjectToModel(dbSubscription));
+                foreach (Subscription dbSubscription in dbContext.Subscriptions.Where(x => x.Student.LastName.Contains(name) || x.Student.FirstName.Contains(name)))
+                {
+                    subscriptionList.Add(MapDbObjectToModel(dbSubscription));
+                }
             }
             return subscriptionList;
         }

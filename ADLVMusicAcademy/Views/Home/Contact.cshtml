@@ -1,17 +1,67 @@
-﻿@{
+﻿@model ADLVMusicAcademy.Models.ContactModel
+@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+    <h4>Contact us.</h4>
+    <hr />
+    <div class="container" style="display:inline-flex; ">
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <div class="container">
+            <div class="container" style="max-width: 500px;">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SenderName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.SenderName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.SenderName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SenderEmail, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.SenderEmail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.SenderEmail)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Message, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Message)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1 col-md-10">
+                        <input type="submit" class="btn btn-default " value="Send" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container" style="max-width: 500px;">
+            <div class="form-group">
+                <div class="card" style="background-color:transparent; max-width:350px;">
+                    <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i> Address</div>
+                    <div class="container">
+                        <p>Aleea Borsec 4</p>
+                        <p>400408 Cluj-Napoca, jud.Cluj</p>
+                        <p>Romania</p>
+                        <p>Email : adlvacademy@gmail.com</p>
+                        <p>Tel. +40753 941 652</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+}
