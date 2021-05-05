@@ -23,101 +23,101 @@
     </p>
 }
 
-    <table class="table">
+<table class="table">
+    <tr>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.IDLesson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCourse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDTeacher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDStudent)
+            </th>
+        }
+        <th>
+            @Html.DisplayNameFor(model => model.LessonTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LessonSummary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LessonDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resources)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
             @if (User.IsInRole("Admin"))
             {
-                <th>
-                    @Html.DisplayNameFor(model => model.IDLesson)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IDCourse)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IDTeacher)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IDStudent)
-                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDLesson)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCourse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDTeacher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDStudent)
+                </td>
             }
-            <th>
-                @Html.DisplayNameFor(model => model.LessonTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LessonSummary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TeacherFirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StudentFirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LessonDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resources)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                @if (User.IsInRole("Admin"))
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonSummary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherFirstName)
+                @Html.DisplayFor(modelItem => item.TeacherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentFirstName)
+                @Html.DisplayFor(modelItem => item.StudentLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resources)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
                 {
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDLesson)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDCourse)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDTeacher)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDStudent)
-                    </td>
-                }
-                <td>
-                    @Html.DisplayFor(modelItem => item.LessonTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LessonSummary)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TeacherFirstName)
-                    @Html.DisplayFor(modelItem => item.TeacherLastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentFirstName)
-                    @Html.DisplayFor(modelItem => item.StudentLastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LessonDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Resources)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
-                    {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.IDLesson })} |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IDLesson })} |
 
-                    @Html.ActionLink("Details", "Details", new { id = item.IDLesson }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDLesson }) |
 
-                    @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
-                    {
-                        @Html.ActionLink("Delete", "Delete", new { id = item.IDLesson })}
-                </td>
-            </tr>
-        }
+                @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDLesson })}
+            </td>
+        </tr>
+    }
 
-    </table>
+</table>
 

@@ -75,11 +75,11 @@ namespace ADLVMusicAcademy.Controllers
         [Authorize(Roles = "User, Editor, Admin")]
         public ActionResult Create()
         {
-            ViewBag.VBCourseList = new SelectList(courseRepository.GetAllCourses(), "IDCourse", "CourseName");
-            ViewBag.VBStudentList = new SelectList(studentRepository.GetAllStudents().OrderBy(s => s.FullName), "IDStudent", "FullName");            
-            ViewBag.VBSubscriptionTypeList = new SelectList(subscriptionTypeRepository.GetAllSubscriptionTypes().OrderBy(s => s.SubscriptionTypeName), "IDSubscriptionType", "SubscriptionTypeName");
-
-            return View("CreateSubscription");
+                ViewBag.VBCourseList = new SelectList(courseRepository.GetAllCourses(), "IDCourse", "CourseName");
+                ViewBag.VBStudentList = new SelectList(studentRepository.GetAllStudents().OrderBy(s => s.FullName), "IDStudent", "FullName");
+                ViewBag.VBSubscriptionTypeList = new SelectList(subscriptionTypeRepository.GetAllSubscriptionTypes().OrderBy(s => s.SubscriptionTypeName), "IDSubscriptionType", "SubscriptionTypeName");
+            
+                return View("CreateSubscription");
         }
 
         // POST: Subscription/Create
