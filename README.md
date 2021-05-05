@@ -1,81 +1,22 @@
 # ADLVMusicAcademy
 Web app for online music school
 Ad Libitum Voices Music Academy
-The goal is to build a functional website with a database, for a music school academy. The app enables management of student enrollments, schedules, sending mass notifications to students and their parents, share lesson plans, sheet music, online tutorials. The app will contain a front page with informations, alongside with a news and events section, teacher profiles, available courses, helpful tools, and a career page for other teacher to apply CV.
-Different roles with separate permissions:
 
-1.	Guests : 
+• Ad Libitum Voices Academy is a web application of a music school,
+through which a user-student can see: the Homepage of the school, the teachers of the school, 
+can create an account and after register as a student, see school classes, see news,
+make a subscription to a course and see their lessons.
+• The application is also designed for : 
+      - the school teachers, who can
+create / modify lessons and courses; 
+      - a manager-administrator of the school, that has full authorization and can monitor and manage all the information
+from the database.
+• The application can be used by 4 types of users, with specific authorizations:
+Guest, User, Editor and Admin.
 
-- can view the courses. 
-- can view the teachers.
--  can see newsfeed. 
-- can create an account. confirmation email will be received upon account creation. Possible integration with SendGrid.
+•To create this web application, I used:
+ - ASP.NET MVC and the C # programming language
+ - Repository (or Data Access Layer)
+ - Bootstrap
+ - jQuery
 
-2.	Student 
-
-- can buy and activate a subscription to classes.
-- can choose a teacher and enroll to individual courses.
-- can create posts
-- can view the schedule.
-- can download courses, music sheets assigned for him, scores.
-- can use tools : metronome, tuner, virtual keyboard.
-
-3.	Teacher
-
-- can schedule lessons with the students enrolled in his classes
-- upload resources to each lesson
-- can cancel or postpone course 
-
-4.	Manager
-- can manage subscriptions
-- can delete accounts, posts, add, delete courses, change schedule
-- can create profiles for teachers, edit areas of the website, post jobs on the careers page.
-
-5.	Admin
-- all permissions
-- Can assign roles to anyone
-
-
-Entities 
-
-Student: 
-- Id (guid)
-- Username – will be auto generated. Username is a combination of First Name + first letter of last - --name.
-- Password (string)
-- Email (string)
-- Parent / Guardian Email (if under 18)
-- First Name (string)
-- Last Name (string)
-- DoB (DateTime)
-- Address
-- Mobile
-
-
-Employee:
-- Id (guid)
-- Username – will be auto generated. Username is a combination of First Name + first letter of last - --name.
-- Password (string)
-- Email (string)
-- First Name (string)
-- Last Name (string)
-- DoB (DateTime)
-- Address
-- Mobile
-- Roles
-- Courses
-
-
-Course:
-
-- name
-- description
-
-Lesson: 
-
-- Date
-- Resources
-- Teacher
-- Student(s)
-- Status
-
-The aproach is database first
